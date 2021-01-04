@@ -28,20 +28,22 @@ namespace The_World
             }
 
             app.UseStaticFiles();
-
-       
             app.UseRouting();
 
            
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    
-                    await context.Response.WriteAsync("Hello World");
-                });    
-             
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    await context.Response.WriteAsync("Hello World");
+                //});    
+
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=App}/{action=Index}/{id?}"
+                    );
+
             });
         }
     }
