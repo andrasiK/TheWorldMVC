@@ -16,6 +16,6 @@ namespace The_World.ViewModel
         public string Email { get; set; }
         [Required]
         [StringLength(1024, MinimumLength = 5)]
-        public int Message { get; set; }
+        public string Message { get; set; }
     }
 }

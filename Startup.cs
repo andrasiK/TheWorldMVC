@@ -13,31 +13,39 @@ using The_World.Services;
 
 namespace The_World
 {
+   
+
     public class Startup
     {
+
+        private IWebHostEnvironment CurrentEnvironment { get; set; }
+
 
         // This is the place what is added to read configurations for the mail service 
         // !!!!
         public static IConfiguration Configuration;
-        public Startup(IApplicationEnvironment appEnv)
+        public Startup(IWebHostEnvironment appEnv)
         {
-            var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(appEnv.ContentRootPath)
                 .AddJsonFile("config.json")
                 .AddEnvironmentVariables();              // this allows us to add different sources of configuration
                
             Configuration = builder.Build();
+
+            CurrentEnvironment = appEnv;
         }
 
 
-
-
+        
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services, IWebHostEnvironment env)
+        public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddMvc();
-            if (env.IsDevelopment())
+            if (CurrentEnvironment.IsDevelopment())
             {
                 services.AddScoped<IMailService, DebugMailService>();
             }
