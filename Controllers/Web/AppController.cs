@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using The_World.ViewModel;
 
 namespace The_World.Controllers.Web
 {
@@ -23,5 +24,13 @@ namespace The_World.Controllers.Web
         {
             return View();
         }
+
+
+        [HttpPost]
+        public IActionResult Contact(ContactViewModel model)
+        {
+            return View();
+        }
+
     }
 }
