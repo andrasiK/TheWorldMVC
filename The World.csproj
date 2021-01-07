@@ -6,19 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Services\IMailService.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\site.css" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\css\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Services\IMailService.cs" />
   </ItemGroup>
 
 </Project>

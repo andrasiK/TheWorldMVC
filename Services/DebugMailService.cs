@@ -1,13 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Web;
+using The_World.ViewModel;
+
 
 namespace The_World.Services
 {
-    public class DebugMailService
+    public class DebugMailService : IMailService
     {
+        public bool SendMail(string to, string from, string subject, string body)
+        {
+            Debug.WriteLine($"Sending mail: To: {to}, Subject: {subject}");
+            return true;
+        }
         
+           
     }
 }

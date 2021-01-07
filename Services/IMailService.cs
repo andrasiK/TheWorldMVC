@@ -6,5 +6,4 @@ namespace The_World.Services
     {
         bool SendMail(string to, string from, string subject, string body);
     }
-
 }
